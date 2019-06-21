@@ -7,30 +7,12 @@ import {
   View,
   Plane,
   Video,
-  Sphere,
   Cylinder,
   VrButton
 } from 'react-360';
 
-const Tree = props => {
-  return (
-    <View {...props}>
-      <Sphere
-        style={{
-          color: 'green',
-          transform: [{ translateY: 0.8 }]
-        }}
-      />
-      <Cylinder
-        style={{
-          color: 'brown'
-        }}
-        radiusTop={0.05}
-        radiusBottom={0.05}
-      />
-    </View>
-  );
-};
+import { Tree } from './components/Tree';
+import { Stand } from './components/Stand';
 
 const createTreeLine = (qty = 0, separation = 0.5, axis = 'X') => {
   const Forest = [];
@@ -114,6 +96,16 @@ export default class CinemaVR extends React.Component {
     const { play, color } = this.state;
     return (
       <View>
+        <View
+          style={{
+            position: 'relative',
+            transform: [
+              { translate: [0, -19.5, 14] }
+            ]
+          }}
+        >
+          <Stand />
+        </View>
         <View 
           style={styles.videoPanel}
         >
